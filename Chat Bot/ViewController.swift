@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var questionTextView: UITextView!
     
@@ -19,6 +19,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
+        let text = questionTextView.text.lowercased()
+        
+        let words = text.components(separatedBy: [ " ",".",",","!","?"])
+        print(words)
+        
+        if words.contains("hello") {
+            answerLabel.text = "Hello!"
+        } else if words.contains("bye") {
+            answerLabel.text = "bye bye!"
+        } else {
+            answerLabel.text = "I don't know, can youy repeat, please?"
+        }
     }
+    
 }
-
